@@ -26,8 +26,9 @@ def markowitz_max_sharpe(returns_df: pd.DataFrame, rf: float=0.0, short_allowed:
     bnds = [bounds]*n
     cons = [{'type':'eq','fun': lambda w: float(np.sum(w)-1.0)}]
     x0 = np.ones(n)/n
-    if not HAS_SCIPY:
-        best_s, best_w = -1e9, x0
+# ---------------------------------------------------------------------------------------------
+    if not HAS_SCIPY:    # Si HAS_SCIPY n'est pas disponible.    "Vraiment nécessaire ??"
+        best_s, best_w = -1e9, x0  
         rng = np.random.default_rng(0)
         for _ in range(10000):
             w = rng.random(n); w /= w.sum()
