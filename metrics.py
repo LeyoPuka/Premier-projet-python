@@ -3,18 +3,18 @@ from typing import Tuple
 import numpy as np
 import pandas as pd
 
-def annualized_return(series: pd.Series, periods_per_year: int = 252) -> float:
-    s = series.dropna()
-    if s.empty: return float("nan")
-    total = s.iloc[-1] / s.iloc[0] - 1.0
-    years = len(s) / periods_per_year
+def annualized_return(series: pd.Series, periods_per_year: int = 252) -> float:  # sert à calculer le rendement annualisé (CAGR) à partir d’une série temporelle
+    s = series.dropna()    # enlève les valeurs manquantes
+    if s.empty: return float("nan")    # Si la série devient vide afficher 'nan'.
+    total = s.iloc[-1] / s.iloc[0] - 1.0  # Donne le rendement total cumulé sur la période complète.
+    years = len(s) / periods_per_year  # Calcul la quantité d'années sur la période choisi.
     if years <= 0: return float("nan")
-    return (1 + total) ** (1 / years) - 1
+    return (1 + total) ** (1 / years) - 1 # Formule classique du taux de croissance annualisé composé (CAGR) :
 
-def annualized_vol(returns: pd.Series, periods_per_year: int = 252) -> float:
+def annualized_vol(returns: pd.Series, periods_per_year: int = 252) -> float:   # Calcule la volatilité annualisée d’une série de rendements périodiques (souvent journaliers).
     r = returns.dropna()
     if r.empty: return float("nan")
-    return float(r.std(ddof=0) * (periods_per_year ** 0.5))
+    return float(r.std(ddof=0) * (periods_per_year ** 0.5))  # Résultat de la volatilité annualisée.
 
 def sharpe_ratio(returns: pd.Series, rf: float = 0.0, periods_per_year: int = 252) -> float:
     r = returns.dropna()
