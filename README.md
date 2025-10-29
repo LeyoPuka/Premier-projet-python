@@ -1,4 +1,4 @@
-# Portfolio Strategy Simulator — v2 (Modulaire)
+# Portfolio Strategy Simulator
 
 Ce projet est un travail de groupe dnas le cadre du cours Python de la formation Sorbonne Data Analytics :
 WebApp Streamlit pour simuler des stratégies de portefeuille et afficher des KPIs avancés.
