@@ -4,7 +4,8 @@
 
 # Portfolio Strategy Simulator
 
-Projet de niveau master 1 dans le cadre de la formation Sorbonne Data Analytics. Application de modèles économétriques dans l'analyse stratégique d'un portefeuille d'actifs. Évaluation de la performance, analyse du risque et recommandations stratégiques pour un portefeuille d’actions diversifié.
+Projet de niveau master 1 dans le cadre de la formation Sorbonne Data Analytics. 
+Application de modèles économétriques dans l'analyse stratégique d'un portefeuille d'actifs : Évaluation de la performance, analyse du risque et recommandations stratégiques pour un portefeuille d’actions diversifié.
 
 ## Contexte
 
@@ -38,7 +39,7 @@ Ce projet vise à fournir une analyse stratégique permettant de maximiser le re
 
 3. Recommandations d’allocation optimisée pour maximiser le rendement/risk ratio.
 
-## 🧠 Technologies utilisées
+## Technologies utilisées 🧠
 
 Python : Pandas, NumPy, Matplotlib, Seaborn, SciPy, Streamlit, Plotly.express.
 Bibliothèques financières : Yfinance.
@@ -47,7 +48,7 @@ GitHub
 
 ## Installation
 
-git clone https://github.com/LeyoPuka/Premier-projet-python.git
+git clone https://github.com/LeyoPuka/Premier-projet-python.git  
 pip install -r requirements.txt
 
 ## Structure
