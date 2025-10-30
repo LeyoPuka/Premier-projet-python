@@ -38,6 +38,18 @@ Ce projet vise à fournir une analyse stratégique permettant de maximiser le re
 
 3. Recommandations d’allocation optimisée pour maximiser le rendement/risk ratio.
 
+## 🧠 Technologies utilisées
+
+Python : Pandas, NumPy, Matplotlib, Seaborn, SciPy, Streamlit, Plotly.express.
+Bibliothèques financières : Yfinance.
+Jupyter Notebook
+GitHub
+
+## Installation
+
+git clone https://github.com/LeyoPuka/Premier-projet-python.git
+pip install -r requirements.txt
+
 ## Structure
 
 ```
@@ -54,19 +66,8 @@ portfolio_simulator_v2_modular/
 └─ requirements.txt
 ```
 
-## Installation & Lancement
-
-1. Créez un environnement Python 3.10+ et installez les dépendances :
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. Lancez la webapp :
-   ```bash
-   streamlit run app.py
-   ```
-
 ## Fonctionnalités
+
 - **Données** : yfinance (ajusté) ou CSV avec colonne `Date`, colonnes = tickers.
 - **Stratégies** : Buy&Hold, moving-average crossover, volatility targeting (equal-weight).
 - **KPIs** : CAGR, volatilité annualisée, Sharpe, Sortino, max drawdown, VaR 95%, beta/alpha vs benchmark.
