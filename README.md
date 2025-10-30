@@ -4,8 +4,39 @@
 
 # Portfolio Strategy Simulator
 
-Ce projet est un travail de groupe dans le cadre du cours Python de la formation Sorbonne Data Analytics :
-WebApp Streamlit pour simuler des stratégies de portefeuille et afficher des KPIs avancés.
+Projet de niveau master 1 dans le cadre de la formation Sorbonne Data Analytics. Application de modèles économétriques dans l'analyse stratégique d'un portefeuille d'actifs. Évaluation de la performance, analyse du risque et recommandations stratégiques pour un portefeuille d’actions diversifié.
+
+## Contexte
+
+La gestion d’un portefeuille d’actions nécessite une analyse rigoureuse des performances et des risques associés.
+Ce projet vise à fournir une analyse stratégique permettant de maximiser le rendement tout en maîtrisant le risque, grâce à Python et aux outils de data science financière.
+
+## Objectifs 🎯
+
+* Évaluer la performance historique du portefeuille.
+* Mesurer le risque et la volatilité des actifs.
+* Identifier les corrélations et diversifications optimales.
+* Proposer des recommandations stratégiques pour l’allocation future du portefeuille.
+
+## Méthodologie ⚙️
+
+1. Collecte des données : prix historiques des actions, indices de marché, données financières publiques.
+
+2. Nettoyage et préparation : gestion des valeurs manquantes, normalisation des données.
+
+3. Analyse exploratoire : visualisation des rendements, corrélations, volatilité.
+
+4. Optimisation de portefeuille : calcul du ratio de Sharpe, frontiere efficiente, allocation optimale.
+
+5. Reporting stratégique : graphiques et recommandations basées sur l’analyse.
+
+## Résultats 📈
+
+1. Analyse détaillée de la performance de chaque action et du portefeuille global.
+
+2. Visualisation des corrélations et identification des actifs fortement liés.
+
+3. Recommandations d’allocation optimisée pour maximiser le rendement/risk ratio.
 
 ## Structure
 
