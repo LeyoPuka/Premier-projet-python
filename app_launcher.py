@@ -151,7 +151,7 @@ if run:
             except Exception:
                 bench_series = None
         beta, alpha = (np.nan, np.nan)
-        if bench_series is not None:   # Si la serie bench_series existe, alors on calcule son beta (sensibilité au marché) et alpha (sur ou sous perf)
+        if bench_series is not None:   # Si la serie bench_series existe, alors on calcule son beta (sensibilité au marché) et alpha (sur ou sous performance)
             beta, alpha = beta_alpha(rets, bench_series, rf=rf_rate)
 # -----------------------------------------------------------------------------------------------------------------------------
 # Affichage du résultat
@@ -186,7 +186,7 @@ if run:
 
         with tabs[1]:  # Table 'Analyse'
             st.subheader("Corrélations (rendements)")  # Titre du table de corrélations
-            rets_assets = pct_returns(res.prices)  # Elle calcule les rendements en pourcentage à partir des prix. C'est où?
+            rets_assets = pct_returns(res.prices)  # Elle calcule les rendements en pourcentage à partir des prix. 
             corr = rets_assets.corr()  # Matrice de corrélations
             fig_corr = px.imshow(corr, text_auto=".2f", aspect="auto")  # affiche une matrice (heatmap) avec les valeurs de corrélation.
             st.plotly_chart(fig_corr, use_container_width=True)  # Intègre la heatmap interactive dans l'application Streamlit.
