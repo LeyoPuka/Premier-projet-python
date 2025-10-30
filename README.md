@@ -1,6 +1,10 @@
+<p align="center">
+  <img src="banner.png" alt="Bannière du projet" width="800"/>
+</p>
+
 # Portfolio Strategy Simulator
 
-Ce projet est un travail de groupe dnas le cadre du cours Python de la formation Sorbonne Data Analytics :
+Ce projet est un travail de groupe dans le cadre du cours Python de la formation Sorbonne Data Analytics :
 WebApp Streamlit pour simuler des stratégies de portefeuille et afficher des KPIs avancés.
 
 ## Structure
