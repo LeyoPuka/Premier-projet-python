@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="banner.png" alt="Bannière du projet" width="800"/>
+  <img src="banner.png" alt="Bannière du projet" width="400"/>
 </p>
 
 # Portfolio Strategy Simulator
