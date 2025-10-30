@@ -39,7 +39,6 @@ Ce projet vise à fournir une analyse stratégique permettant de maximiser le re
 
 3. Recommandations d’allocation optimisée pour maximiser le rendement/risk ratio.
 
-<p align="center">
 <img src="image/tableau.png" width="800" height="400"/> 
 
 ## Technologies utilisées 🧠
