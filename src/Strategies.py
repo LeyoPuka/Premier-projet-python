@@ -5,30 +5,30 @@ import pandas as pd
 from .types import BacktestResult
 from .utils import sanitize_columns, to_weights_equal
 
-class Strategy:
-    name: str = "Base"
-    def run(self, prices: pd.DataFrame, capital: float) -> BacktestResult:
-        raise NotImplementedError
+class Strategy: # Tu définis une classe Python appelée Strategy. Elle servira de classe mère (ou “template”) pour toutes les stratégies de trading.
+    name: str = "Base"  # Il définit le nom de la stratégie, ici "Base". Les stratégies dérivées pourront le modifier, par exemple :
+    def run(self, prices: pd.DataFrame, capital: float) -> BacktestResult:  # Méthode à implémenter dans les sous-classes.
+        raise NotImplementedError  # Oblige les sous-classes à définir leur propre logique
 
-class BuyAndHoldStrategy(Strategy):
-    name = "Buy & Hold"
-    def run(self, prices: pd.DataFrame, capital: float) -> BacktestResult:
+class BuyAndHoldStrategy(Strategy):  # Tu crées une sous-classe de Strategy. Elle hérite donc de tout ce que tu as défini dans Strategy.
+    name = "Buy & Hold"  # On renomme la stratégie.
+    def run(self, prices: pd.DataFrame, capital: float) -> BacktestResult:  
         prices = sanitize_columns(prices.dropna(how="all").ffill().dropna(axis=1, how="all"))
         tickers = list(prices.columns); n=len(tickers)
-        if n==0: raise ValueError("No valid price columns.")
-        w = to_weights_equal(n)
-        first = prices.iloc[0]
+        if n==0: raise ValueError("No valid price columns.")  # Vérifie qu’il y a au moins un actif.
+        w = to_weights_equal(n)  # retourne un vecteur de poids égaux.
+        first = prices.iloc[0]  # Achat initial
         shares = (capital*w)/first.replace(0,np.nan)
         shares = shares.fillna(0.0)
-        equity = (prices*shares).sum(axis=1)
-        rets = equity.pct_change().fillna(0.0)
-        weights = (prices.mul(shares,axis=1)).div(equity,axis=0).fillna(0.0)
-        trades = pd.DataFrame({
+        equity = (prices*shares).sum(axis=1)  # Valeur de portefeuille.
+        rets = equity.pct_change().fillna(0.0)  # Rendements.
+        weights = (prices.mul(shares,axis=1)).div(equity,axis=0).fillna(0.0)  # Poids dynamics.
+        trades = pd.DataFrame({    # Historique de transactions.
             "Date":[prices.index[0]]*n,"Ticker":tickers,"Action":["BUY"]*n,
             "Shares":shares.values,"Price":first.values,"CashFlow":-(shares.values*first.values)
         }).set_index("Date")
-        positions = pd.DataFrame([shares.values], index=[prices.index[0]], columns=tickers)
-        return BacktestResult(equity, rets, weights, positions, prices, trades)
+        positions = pd.DataFrame([shares.values], index=[prices.index[0]], columns=tickers)  # Contient la quantité d’actions détenue par actif, au moment de l’achat initial.
+        return BacktestResult(equity, rets, weights, positions, prices, trades)  # Résultat du backtest.
 
 class MACrossoverStrategy(Strategy):
     name = "MA Crossover"
