@@ -1,6 +1,6 @@
-# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------------------------------------------------
 # Streamlit launcher for the modular Portfolio Strategy Simulator (v2)
-# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------------------------------------------------
 import os, json
 from datetime import date, timedelta
 from typing import Optional, List
@@ -16,17 +16,17 @@ from src.metrics import annualized_return, annualized_vol, sharpe_ratio, sortino
 from src.strategies import BuyAndHoldStrategy, MACrossoverStrategy, VolTargetStrategy
 from src.optimizer import markowitz_max_sharpe
 
-# -------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------------
 # Configuration de la page d'accueil
-# -------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------------
 
 st.set_page_config(page_title="Portfolio Strategy Simulator v2 (Modular)", page_icon="💹", layout="wide")
 st.title("💹 Portfolio Strategy Simulator — v2")
 st.caption("Stratégies élargies + KPIs avancés + Optimisation Markowitz. **Éducatif uniquement.**")
 
-# ---------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------------
 # Affichage de la colonne de gauche de l'interface
-# ---------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------------
 
 with st.sidebar:
     st.header("⚙️ Paramètres")
@@ -114,9 +114,9 @@ if run:
                 st.success(f"Config '{config_name}' chargée."); st.json(cfg)  # Affiche un résultat positif si le chargement a succès.
             except Exception as e:
                 st.error(f"Impossible de charger la config: {e}")     # Affiche erreur.
-# -----------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------------------------
 # Tabs Calcul
-# -----------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------------------------
         tabs = st.tabs(["📈 Résultats", "🧐 Analyse", "🧮 Optimisation"])  # Crée plusieurs onglets cliquables dans l'application.
 
         # Strategy selection
@@ -153,9 +153,9 @@ if run:
         beta, alpha = (np.nan, np.nan)
         if bench_series is not None:   # Si la serie bench_series existe, alors on calcule son beta (sensibilité au marché) et alpha (sur ou sous perf)
             beta, alpha = beta_alpha(rets, bench_series, rf=rf_rate)
-# ---------------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------------------------------------------------
 # Affichage du résultat
-# ----------------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------------------------------------------------
         with tabs[0]:  # Tout le code à l'intérieur de la table 'Résultats' (tabs[0])
             st.success("Données chargées: " + ", ".join(map(str, list(res.prices.columns))))  # affiche un message indiquant que les données ont bien été chargées.  
             st.dataframe(res.prices.tail())  # Affiche les dernières lignes du DataFrame contenant les prix.
@@ -233,9 +233,9 @@ if run:
         st.error(f"Erreur: {e}")  # Affiche l'erreur trouvé.
 
 st.divider()  # Commande pour faire une séparation dans l'interface.
-# ------------------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------------------------------------------------
 # Message instructif s'affichant dans la page d'accueil
-# ------------------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------------------------------------------------
 st.markdown("""
 **Guide rapide v2**  
 - Fichiers séparés : `src/` (données, stratégies, métriques, optimisateur) + `app.py` (lanceur).  
